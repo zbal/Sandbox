@@ -47,8 +47,23 @@ console.log('premmmss !!');
 
 var actions = require('./config.js').actions;
 var __ = require('../maki/lib/underscore.js');
+var async = require('/usr/local/lib/node_modules/asyncjs');
 
-__(actions).forEach(function(action,label){
+//  __(actions).forEach(function(action,label){
+//    if (action.type == 'exec') {
+//      exec(action.run, function (error, stdout, stderr){
+//        if (error) { throw error };
+//        console.log(stdout);
+//      });
+//    }
+//    if ( action.type == 'db') {
+//      mysql.update(function(data){
+//        console.log('db : '+ data);
+//      });
+//    }
+//  });
+
+var run = function(action,label){
   if (action.type == 'exec') {
     exec(action.run, function (error, stdout, stderr){
       if (error) { throw error };
@@ -60,4 +75,31 @@ __(actions).forEach(function(action,label){
       console.log('db : '+ data);
     });
   }
-});
+};
+
+//async.list([
+//  mysql.update(function(data) { return data })
+//, exec('./test.sh', function (error, stdout, stderr){ return stdout })
+//]).call()
+//.end(function(err, result) {
+//  console.log(result);
+//})
+
+//async.list([1, 8, 3, 5])
+//    .every(function odd(item) {
+//        return item % 2 == 0
+//    })
+//    .end(function(err, allEven) {
+//        console.log("All values are even: " + allEven)
+//    }) 
+//
+
+//async.range(0,3).each(function (item, next){ console.log("item : "+ JSON.stringify(item)); })
+//end(function(err,result){ console.log(result); })
+//    ]).call()
+
+async.range(1, 10)
+    .each(function(item, next) {
+        console.log(item);
+    });
+
