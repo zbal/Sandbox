@@ -63,16 +63,18 @@ var async = require('/usr/local/lib/node_modules/asyncjs');
 //    }
 //  });
 
-var run = function(action,label){
+var run = function(action,callback){
   if (action.type == 'exec') {
     exec(action.run, function (error, stdout, stderr){
       if (error) { throw error };
       console.log(stdout);
+      callback(error);
     });
   }
   if ( action.type == 'db') {
-    mysql.update(function(data){
-      console.log('db : '+ data);
+    mysql.update(function(error){
+      console.log('db : '+ error);
+      callback(error);
     });
   }
 };

@@ -3,6 +3,7 @@ exports.actions = {
   //  { 
       type: 'exec',
       run: 'sleep 1',
+      wome: {dsfdf: 'fdfs'}
     },
   'test': {
 //  {

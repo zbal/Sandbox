@@ -118,7 +118,7 @@ var caller = function(run, list_fn, callback) {
   }
 }
 
-actionsArray=__.toArray(actions);
+actionsArray=require('../maki/lib/underscore.js').toArray(actions);
 caller(runable, actionsArray);
 console.log(JSON.stringify(list_fn_real));
 
