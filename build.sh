@@ -1,5 +1,9 @@
 #!/bin/bash
 
-echo > _site/index.html << EOF
-toto
+date=$(date)
+
+cat > _site/index.html << EOF
+
+$date
+
 EOF
